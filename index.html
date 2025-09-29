@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 7-Day Sleep Reset</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%);
+            color: #e0e6f0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            background: radial-gradient(circle at 50% 50%, #1a237e 0%, #0a0e27 50%, #000000 100%);
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .moon {
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #f5e6a8 100%);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.6), 0 0 100px rgba(255, 215, 0, 0.4);
+            animation: glow 4s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.6), 0 0 100px rgba(255, 215, 0, 0.4); }
+            50% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.8), 0 0 120px rgba(255, 215, 0, 0.6); }
+        }
+        
+        .cover-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 900px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64b5f6;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin: 1rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #64b5f6 50%, #42a5f5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(100, 181, 246, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: #90caf9;
+            margin: 2rem 0;
+            font-weight: 300;
+            font-style: italic;
+        }
+        
+        .cover-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(30, 136, 229, 0.4);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 2px solid #1e3a8a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #64b5f6;
+            font-weight: 700;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 136, 229, 0.4);
+        }
+        
+        /* Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        /* Chapter Styling */
+        .chapter {
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.3) 0%, rgba(13, 27, 42, 0.3) 100%);
+            border-left: 4px solid #42a5f5;
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #64b5f6;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.3);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #90caf9;
+            margin: 2.5rem 0 1rem 0;
+            border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            color: #bbdefb;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.3rem;
+            color: #64b5f6;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+        
+        p {
+            margin: 1.2rem 0;
+            color: #e0e6f0;
+            font-size: 1.05rem;
+        }
+        
+        /* Special Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.2) 0%, rgba(21, 101, 192, 0.2) 100%);
+            border: 2px solid #42a5f5;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(66, 165, 245, 0.2);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.15) 0%, rgba(198, 40, 40, 0.15) 100%);
+            border-left: 4px solid #ef5350;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, rgba(102, 187, 106, 0.15) 0%, rgba(67, 160, 71, 0.15) 100%);
+            border-left: 4px solid #66bb6a;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin: 0.8rem 0;
+            color: #e0e6f0;
+            line-height: 1.8;
+        }
+        
+        li::marker {
+            color: #42a5f5;
+        }
+        
+        /* Checkboxes */
+        .checkbox-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .checkbox-list li {
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checkbox-list li:before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: #42a5f5;
+            font-size: 1.3rem;
+        }
+        
+        /* Day Cards */
+        .day-card {
+            background: linear-gradient(135deg, rgba(21, 101, 192, 0.3) 0%, rgba(13, 71, 161, 0.3) 100%);
+            border: 2px solid #1e88e5;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 30px rgba(30, 136, 229, 0.3);
+        }
+        
+        .day-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.4) 0%, rgba(13, 27, 42, 0.4) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #42a5f5;
+        }
+        
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+        }
+        
+        .toc ol {
+            counter-reset: toc-counter;
+        }
+        
+        .toc li {
+            counter-increment: toc-counter;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+        
+        .toc li:hover {
+            background: rgba(66, 165, 245, 0.2);
+            padding-left: 1rem;
+        }
+        
+        /* Quick Reference Card */
+        .quick-ref {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .quick-ref h3 {
+            color: #ffd700;
+        }
+        
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #42a5f5 50%, transparent 100%);
+            margin: 3rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .moon {
+                width: 80px;
+                height: 80px;
+                top: 5%;
+                right: 5%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .chapter {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0e27;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #1e88e5 0%, #1565c0 100%);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #42a5f5 0%, #1e88e5 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="stars" id="stars"></div>
+        <div class="moon"></div>
+        
+        <div class="cover-content">
+            <div class="subtitle">Transform Your Sleep in Just 7 Days</div>
+            <h1 class="main-title">The 7-Day<br>Sleep Reset</h1>
+            <p class="tagline">A Busy Professional's Guide to Doubling Energy<br>Without Changing Your Schedule</p>
+            <div class="cover-badge">⭐ Proven System • No Gadgets Required • Immediate Results</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-title">The 7-Day Sleep Reset</div>
+            <button class="nav-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Back to Top</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About This Guide -->
+        <div class="chapter">
+            <h1>📘 About This Guide</h1>
+            <p>This e-book provides a proven, step-by-step system to optimize your sleep in just 7 days without expensive gadgets, drastic lifestyle changes, or complex medical interventions. Designed specifically for busy professionals who can't afford to waste time on theories, this guide delivers immediate, actionable results.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>📋 Table of Contents</h2>
+            <ol>
+                <li>Introduction: Why Your Sleep Strategy Is Failing</li>
+                <li>The Sleep Reset Framework</li>
+                <li>Day 1: The Foundation Reset</li>
+                <li>Day 2: The Evening Optimization</li>
+                <li>Day 3: The Morning Amplification</li>
+                <li>Day 4: The Stress Detox Protocol</li>
+                <li>Day 5: The Environment Upgrade</li>
+                <li>Day 6: The Recovery Maximizer</li>
+                <li>Day 7: The Integration Blueprint</li>
+                <li>Maintaining Your Results: The 30-Day Plan</li>
+                <li>Troubleshooting Common Issues</li>
+                <li>Quick Reference Guide</li>
+            </ol>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chapter 1 -->
+        <div class="chapter">
+            <h1>Chapter 1: Why Your Sleep Strategy Is Failing</h1>
+            
+            <h2>The Busy Professional's Sleep Paradox</h2>
+            <p>You know sleep is important. You've read the articles, tried the apps, bought the fancy pillows. Yet here you are, still exhausted, struggling to focus during afternoon meetings, and reaching for your third coffee by 2 PM.</p>
+            <p>The problem isn't your commitment—it's your approach.</p>
+
+            <h2>The Three Fatal Mistakes</h2>
+            
+            <div class="highlight-box">
+                <h4>Mistake #1: Information Overload</h4>
+                <p>You're drowning in conflicting advice. One expert says wake at 5 AM, another says sleep 8 hours minimum, a third warns about blue light. You try to do everything and end up doing nothing effectively.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Mistake #2: The Perfection Trap</h4>
+                <p>Sleep tracking apps create anxiety. You obsess over hitting perfect sleep scores instead of actually sleeping. This is called "orthosomnia," and it's making your sleep worse, not better.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Mistake #3: All-or-Nothing Thinking</h4>
+                <p>You believe improving sleep requires a complete lifestyle overhaul: new mattress, blackout curtains, meditation practice, supplement routine, and a 10 PM bedtime. When you can't do it all, you do nothing.</p>
+            </div>
+
+            <h2>The Sleep Reset Difference</h2>
+            <p>This guide eliminates all three mistakes by focusing on:</p>
+            <ul>
+                <li><strong>One action per day</strong> (no overwhelm)</li>
+                <li><strong>No tracking required</strong> (trust your body)</li>
+                <li><strong>Minimal time investment</strong> (10-15 minutes max)</li>
+                <li><strong>Immediate results</strong> (feel better within 48 hours)</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Chapter 2 -->
+        <div class="chapter">
+            <h1>Chapter 2: The Sleep Reset Framework</h1>
+            
+            <h2>Understanding Sleep Pressure</h2>
+            <p>Your body operates on two systems:</p>
+            <ol>
+                <li><strong>Sleep Pressure</strong> - builds throughout the day</li>
+                <li><strong>Circadian Rhythm</strong> - your internal clock</li>
+            </ol>
+            <p>When these align, you sleep deeply. When they conflict, you toss and turn.</p>
+
+            <h2>The Four Pillars of Sleep Optimization</h2>
+            
+            <div class="day-card">
+                <h4>Pillar 1: Pressure Building</h4>
+                <p>Activities that increase sleep pressure without overstimulation.</p>
+            </div>
+
+            <div class="day-card">
+                <h4>Pillar 2: Rhythm Anchoring</h4>
+                <p>Consistent signals that set your internal clock.</p>
+            </div>
+
+            <div class="day-card">
+                <h4>Pillar 3: Stress Processing</h4>
+                <p>Releasing mental tension before bed.</p>
+            </div>
+
+            <div class="day-card">
+                <h4>Pillar 4: Environment Control</h4>
+                <p>Removing sleep disruptors from your space.</p>
+            </div>
+
+            <h2>The 7-Day Reset Protocol</h2>
+            <p>Each day focuses on ONE pillar. By Day 7, all four work together automatically. No complex routines to remember—just simple, cumulative habits.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 1 -->
+        <div class="chapter">
+            <div class="day-number">DAY 1</div>
+            <h1>The Foundation Reset</h1>
+            
+            <h2>Today's Focus: Establish Your Anchor</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>Your body doesn't know when "night" starts because your schedule is erratic. Without a consistent signal, your brain stays alert when it should wind down.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>Set your "Start Shutdown" alarm for 9:00 PM</h3>
+                <p>When it goes off:</p>
+                <ol>
+                    <li>Save your work (even if unfinished)</li>
+                    <li>Close your laptop</li>
+                    <li>Put phone in another room</li>
+                    <li>Write tomorrow's top 3 priorities on paper</li>
+                </ol>
+                <p><strong>Time Required:</strong> 5 minutes</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>This creates a "gate" between work and rest. Your brain learns: alarm = day ending. Within 3 days, you'll feel naturally tired around this time.</p>
+
+            <h2>Common Objections Handled</h2>
+            
+            <h4>"But I have deadlines!"</h4>
+            <p>Nothing you do after 9 PM is your best work anyway. You'll accomplish more in 30 focused morning minutes than 2 tired evening hours.</p>
+
+            <h4>"What if something urgent comes up?"</h4>
+            <p>Real emergencies are rare. If it's truly urgent (medical, security), handle it. Otherwise, it waits until morning.</p>
+
+            <h4>"9 PM seems early..."</h4>
+            <p>Start here for 7 days. After you see results, adjust to 9:30 or 10 PM if needed. But most people keep it at 9 PM because they love the results.</p>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You automatically start winding down before the alarm</li>
+                    <li>You feel less anxious about unfinished tasks</li>
+                    <li>Your mind feels clearer in the evenings</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 2 -->
+        <div class="chapter">
+            <div class="day-number">DAY 2</div>
+            <h1>The Evening Optimization</h1>
+            
+            <h2>Today's Focus: Calm Your Nervous System</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>Your brain is in high-alert mode from work stress, notifications, and decision fatigue. You can't just "flip a switch" to relax.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>The 10-Minute Brain Dump (do this at 9:00 PM)</h3>
+                <ol>
+                    <li>Get a notebook and pen</li>
+                    <li>Set a timer for 10 minutes</li>
+                    <li>Write continuously about anything on your mind:
+                        <ul>
+                            <li>Worries</li>
+                            <li>Tomorrow's tasks</li>
+                            <li>Random thoughts</li>
+                            <li>Irritations</li>
+                            <li>Ideas</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h4>Rules:</h4>
+                <ul>
+                    <li>Don't edit or organize</li>
+                    <li>Don't stop writing</li>
+                    <li>Spelling/grammar don't matter</li>
+                    <li>No one will read this</li>
+                    <li>Throw it away after if you want</li>
+                </ul>
+                <p><strong>Time Required:</strong> 10 minutes</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>Unexpressed thoughts create background anxiety. Writing them down tells your brain: "This is handled. You can rest now."</p>
+            <p>Studies show expressive writing reduces rumination (repetitive worrying) by 40% and improves sleep onset time by 15 minutes.</p>
+
+            <h2>The Science</h2>
+            <p>When you write by hand:</p>
+            <ul>
+                <li>Your brain processes emotions differently than typing</li>
+                <li>Physical movement releases tension</li>
+                <li>You can't multitask (unlike digital writing)</li>
+                <li>No blue light exposure</li>
+            </ul>
+
+            <h2>Advanced Technique: The Worry Appointment</h2>
+            <p>If specific worries keep appearing:</p>
+            <ol>
+                <li>Write "SOLVE TOMORROW AT 2 PM" next to them</li>
+                <li>Actually schedule 15 minutes to address it</li>
+                <li>Your brain relaxes because there's a plan</li>
+            </ol>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You feel lighter after writing</li>
+                    <li>Fewer racing thoughts in bed</li>
+                    <li>You fall asleep faster</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 3 -->
+        <div class="chapter">
+            <div class="day-number">DAY 3</div>
+            <h1>The Morning Amplification</h1>
+            
+            <h2>Today's Focus: Anchor Your Circadian Rhythm</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>Your internal clock needs light exposure at consistent times. Without it, you're essentially jet-lagged every day.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>Get 10 minutes of outdoor light within 30 minutes of waking</h3>
+                <p>Not through a window. Actually outside.</p>
+                
+                <h4>How to do it:</h4>
+                <ul>
+                    <li>Take your coffee/tea outside</li>
+                    <li>Walk around the block</li>
+                    <li>Stand on your balcony</li>
+                    <li>Sit on your front steps</li>
+                    <li>Walk to your car the long way</li>
+                </ul>
+                
+                <p><strong>Overcast day?</strong> Still works. You need 10,000 lux, and even cloudy days provide this. Indoor light is only 100-500 lux.</p>
+                <p><strong>Time Required:</strong> 10 minutes</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>Morning light:</p>
+            <ul>
+                <li>Stops melatonin production (waking you up)</li>
+                <li>Sets your circadian clock</li>
+                <li>Triggers cortisol spike (good morning cortisol)</li>
+                <li>Improves evening melatonin production (12-14 hours later)</li>
+            </ul>
+            <p>This is the single most powerful sleep intervention that doesn't require changing when you sleep.</p>
+
+            <h2>Bonus Benefits</h2>
+            <ul>
+                <li>Better mood (light therapy effect)</li>
+                <li>More afternoon energy</li>
+                <li>Reduced afternoon cravings</li>
+                <li>Improved focus</li>
+            </ul>
+
+            <h2>For Night Shift Workers</h2>
+            <p>Get bright light exposure at the start of your "day" (whenever you wake). Then minimize bright light 2-3 hours before sleep, regardless of actual time.</p>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You feel more alert in mornings (without extra coffee)</li>
+                    <li>You naturally feel tired at night</li>
+                    <li>More consistent energy throughout the day</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Quick Reference Section -->
+        <div class="quick-ref">
+            <h1>⚡ Quick Reference Guide</h1>
+            <h2>Your Daily Sleep Protocol (Print & Post This)</h2>
+            
+            <h3>MORNING (Within 30 min of waking)</h3>
+            <ul class="checkbox-list">
+                <li>Get 10 minutes outdoor light</li>
+                <li>Rate yesterday's energy: ___/10</li>
+            </ul>
+
+            <h3>THROUGHOUT DAY</h3>
+            <ul class="checkbox-list">
+                <li>Check jaw tension (is it relaxed?)</li>
+                <li>Last caffeine before 2 PM</li>
+                <li>20-min afternoon walk (if possible)</li>
+            </ul>
+
+            <h3>EVENING (9:00 PM)</h3>
+            <ul class="checkbox-list">
+                <li>Shutdown alarm: Close laptop, note tomorrow's top 3 priorities</li>
+                <li>10-min brain dump (if needed)</li>
+                <li>Phone outside bedroom</li>
+            </ul>
+
+            <h3>EVENING (8:00 PM - 3x/week)</h3>
+            <ul class="checkbox-list">
+                <li>5-min tension release</li>
+            </ul>
+
+            <h3>WIND-DOWN (9:30 PM)</h3>
+            <ul class="checkbox-list">
+                <li>Lower lights</li>
+                <li>Wind-down activity (read, stretch, journal)</li>
+                <li>Prepare for tomorrow</li>
+                <li>Enter bedroom only when sleepy</li>
+            </ul>
+
+            <h3>BEDROOM RULES</h3>
+            <ul>
+                <li>🚫 No screens</li>
+                <li>🚫 No work</li>
+                <li>❄️ Cool temperature (65-68°F)</li>
+                <li>🌙 Dark & quiet</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 4 -->
+        <div class="chapter">
+            <div class="day-number">DAY 4</div>
+            <h1>The Stress Detox Protocol</h1>
+            
+            <h2>Today's Focus: Release Physical Tension</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>Mental stress creates physical tension. This tension keeps your nervous system activated, preventing deep sleep.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>The 5-Minute Tension Release (do at 8:00 PM)</h3>
+                
+                <h4>Step 1: Body Scan (2 minutes)</h4>
+                <p>Lie on your back. Notice where you hold tension:</p>
+                <ul>
+                    <li>Jaw clenched?</li>
+                    <li>Shoulders raised?</li>
+                    <li>Fists tight?</li>
+                    <li>Stomach tensed?</li>
+                </ul>
+
+                <h4>Step 2: Progressive Release (3 minutes)</h4>
+                <p>For each tense area:</p>
+                <ol>
+                    <li>Tense it MORE for 5 seconds</li>
+                    <li>Release completely</li>
+                    <li>Breathe deeply twice</li>
+                </ol>
+                <p><strong>Order:</strong> Jaw → Shoulders → Arms → Stomach → Legs</p>
+                <p><strong>Time Required:</strong> 5 minutes</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>Paradoxically, tensing muscles before relaxing them creates deeper relaxation. This technique:</p>
+            <ul>
+                <li>Increases body awareness</li>
+                <li>Activates parasympathetic nervous system</li>
+                <li>Reduces chronic muscle tension</li>
+                <li>Improves sleep quality by 25%</li>
+            </ul>
+
+            <h2>The Secret: Jaw Tension</h2>
+            <p>Most people unconsciously clench their jaw all day. This alone can prevent deep sleep. Pay special attention to your jaw during the day:</p>
+            
+            <div class="highlight-box">
+                <h4>The Jaw Check:</h4>
+                <p>Throughout the day, ask yourself: "Is my jaw relaxed?"</p>
+                <ul>
+                    <li>Teeth should be slightly apart</li>
+                    <li>Tongue resting on roof of mouth</li>
+                    <li>No clenching</li>
+                </ul>
+            </div>
+
+            <h2>Advanced Version: The Sigh</h2>
+            <p>Between progressive releases, do three "physiological sighs":</p>
+            <ol>
+                <li>Deep inhale through nose</li>
+                <li>Quick additional inhale (double inhale)</li>
+                <li>Long, slow exhale through mouth</li>
+            </ol>
+            <p>This rapidly reduces stress hormones.</p>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You notice daytime tension more easily</li>
+                    <li>Your body feels heavier/more relaxed</li>
+                    <li>You sleep through the night more often</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 5 -->
+        <div class="chapter">
+            <div class="day-number">DAY 5</div>
+            <h1>The Environment Upgrade</h1>
+            
+            <h2>Today's Focus: Optimize Your Sleep Space</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>Your bedroom has become a multi-purpose room: office, entertainment center, and sleep space. Your brain is confused about what to do there.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>The Bedroom Reset</h3>
+                <p>Remove everything in this order (stop when done):</p>
+
+                <h4>Phase 1 (Must Do):</h4>
+                <ol>
+                    <li>Remove all screens from bedroom (TV, laptop, tablet)</li>
+                    <li>Put phone charger outside bedroom door</li>
+                    <li>Remove work materials (laptop, papers, books)</li>
+                </ol>
+
+                <h4>Phase 2 (If You Can):</h4>
+                <ol start="4">
+                    <li>Remove exercise equipment</li>
+                    <li>Remove laundry piles</li>
+                    <li>Clear nightstand to just essentials</li>
+                </ol>
+
+                <h4>Phase 3 (Bonus):</h4>
+                <ol start="7">
+                    <li>Remove books (except one relaxing option)</li>
+                    <li>Remove bright lights (keep dim lamp only)</li>
+                </ol>
+
+                <p><strong>Time Required:</strong> 15-30 minutes (one-time setup)</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>Environmental conditioning is powerful. When your bedroom contains only sleep-related items, your brain automatically enters "sleep mode" when you enter.</p>
+
+            <h2>The Phone Exception</h2>
+            <div class="warning-box">
+                <h4>"But my phone is my alarm!"</h4>
+                <p>Buy a $10 alarm clock. This single change improves sleep quality more than any other environmental factor because:</p>
+                <ul>
+                    <li>No midnight scrolling temptation</li>
+                    <li>No notification lights</li>
+                    <li>No "just one quick check"</li>
+                    <li>No blue light exposure</li>
+                </ul>
+                <p>If buying an alarm clock seems inconvenient, consider: you're prioritizing 30 seconds of convenience over 8 hours of quality sleep.</p>
+            </div>
+
+            <h2>Temperature Matters</h2>
+            <p><strong>Ideal sleep temperature: 65-68°F (18-20°C)</strong></p>
+            <p>Quick wins:</p>
+            <ul>
+                <li>Open window slightly</li>
+                <li>Use lighter blankets</li>
+                <li>Point fan toward yourself</li>
+                <li>Take warm shower before bed (cooling effect afterward)</li>
+            </ul>
+
+            <h2>The Light Test</h2>
+            <div class="highlight-box">
+                <p>Can you see your hand clearly when you hold it in front of your face?</p>
+                <ul>
+                    <li><strong>Yes?</strong> Too bright</li>
+                    <li><strong>No?</strong> Perfect</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You feel sleepy just entering your bedroom</li>
+                    <li>You fall asleep faster</li>
+                    <li>You don't automatically reach for your phone</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 6 -->
+        <div class="chapter">
+            <div class="day-number">DAY 6</div>
+            <h1>The Recovery Maximizer</h1>
+            
+            <h2>Today's Focus: Optimize Your Pre-Sleep Routine</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>You go from full activity to bed with no transition. Your body needs a "runway" to land.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>Create Your 30-Minute Wind-Down Ritual</h3>
+                <p>Starting at 9:30 PM (30 minutes before bed):</p>
+
+                <h4>Minutes 1-10: The Dim</h4>
+                <ul>
+                    <li>Lower all lights to minimum</li>
+                    <li>Switch to warm/red lights if possible</li>
+                    <li>Light a candle (physical cue for wind-down)</li>
+                </ul>
+
+                <h4>Minutes 10-20: The Calm</h4>
+                <p>Choose ONE:</p>
+                <ul>
+                    <li>Read physical book (not thriller/work-related)</li>
+                    <li>Listen to calming music or podcast</li>
+                    <li>Gentle stretching</li>
+                    <li>Journal one good thing from today</li>
+                </ul>
+
+                <h4>Minutes 20-30: The Prep</h4>
+                <ul>
+                    <li>Brush teeth</li>
+                    <li>Wash face</li>
+                    <li>Lay out tomorrow's clothes</li>
+                    <li>Set coffee maker</li>
+                    <li>One final bathroom visit</li>
+                </ul>
+
+                <p><strong>Time Required:</strong> 30 minutes</p>
+            </div>
+
+            <h2>Why This Works</h2>
+            <p>Consistent pre-sleep routines trigger automatic sleep responses. Within one week, your body begins producing melatonin as soon as the routine starts.</p>
+
+            <h2>The Ritual Power</h2>
+            <p>Humans are ritual creatures. Rituals reduce decision fatigue and anxiety. Your wind-down ritual becomes a signal: "Safe to sleep now."</p>
+
+            <h2>What to Avoid After 8 PM</h2>
+            <div class="warning-box">
+                <h4>Never:</h4>
+                <ul>
+                    <li>Work emails</li>
+                    <li>News/social media</li>
+                    <li>Difficult conversations</li>
+                    <li>Complex problem-solving</li>
+                    <li>Intense exercise</li>
+                    <li>Heavy meals</li>
+                </ul>
+                <p><strong>Why these wreck sleep:</strong> Each one activates your stress response, which blocks melatonin production for 1-2 hours.</p>
+            </div>
+
+            <h2>The Reading Trick</h2>
+            <div class="highlight-box">
+                <p>If reading makes you sleepy within 5 minutes, you're sleep-deprived. If it takes 20-30 minutes, you're well-rested. Use this as your personal sleep quality gauge.</p>
+            </div>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's working when:</p>
+                <ul class="checkbox-list">
+                    <li>You automatically start feeling tired during your routine</li>
+                    <li>You can complete it without checking phone</li>
+                    <li>Your body knows "it's sleep time"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Day 7 -->
+        <div class="chapter">
+            <div class="day-number">DAY 7</div>
+            <h1>The Integration Blueprint</h1>
+            
+            <h2>Today's Focus: Lock in Your New System</h2>
+            
+            <div class="warning-box">
+                <h4>The Problem:</h4>
+                <p>You've learned 6 powerful techniques. Without integration, you'll forget them when life gets busy.</p>
+            </div>
+
+            <h2>Your One Action Today</h2>
+            <div class="highlight-box">
+                <h3>Create Your Personal Sleep Protocol</h3>
+                <p>Use this template:</p>
+
+                <h4>MY SLEEP RESET PROTOCOL</h4>
+
+                <strong>Non-Negotiables (every day):</strong>
+                <ul class="checkbox-list">
+                    <li>9:00 PM: Shutdown alarm</li>
+                    <li>Morning: 10 min outdoor light</li>
+                    <li>9:30 PM: Begin wind-down</li>
+                </ul>
+
+                <strong>Weekly (at least 3x):</strong>
+                <ul class="checkbox-list">
+                    <li>9:00 PM: 10-min brain dump</li>
+                    <li>8:00 PM: Tension release</li>
+                </ul>
+
+                <strong>Environment (maintain):</strong>
+                <ul class="checkbox-list">
+                    <li>Phone outside bedroom</li>
+                    <li>Bedroom for sleep only</li>
+                    <li>Cool temperature (65-68°F)</li>
+                </ul>
+
+                <p><strong>Time Required:</strong> 5 minutes to create, then automatic</p>
+            </div>
+
+            <h2>Making It Stick</h2>
+            <ul>
+                <li><strong>Week 1-2:</strong> Follow protocol strictly (build habit)</li>
+                <li><strong>Week 3-4:</strong> Allow flexibility (life happens)</li>
+                <li><strong>Month 2+:</strong> It becomes automatic (new normal)</li>
+            </ul>
+
+            <h2>The 80/20 Rule</h2>
+            <div class="highlight-box">
+                <p>If you do nothing else, do these two:</p>
+                <ol>
+                    <li>Shutdown alarm at 9 PM</li>
+                    <li>Morning light within 30 minutes of waking</li>
+                </ol>
+                <p>These two actions alone improve sleep by 40-50%.</p>
+            </div>
+
+            <h2>Tracking Without Obsessing</h2>
+            <p><strong>Don't track:</strong> Sleep scores, REM stages, efficiency</p>
+            <p><strong>Do notice:</strong> Energy levels, mood, focus</p>
+            <p>Simple daily check: "Did I feel rested today?" Yes/No.</p>
+
+            <h2>Handling Setbacks</h2>
+            <p>You'll have bad nights. That's normal. The key: don't abandon the protocol because of one bad night.</p>
+            
+            <div class="warning-box">
+                <h4>If you have a bad night:</h4>
+                <ol>
+                    <li>Follow protocol anyway</li>
+                    <li>Get morning light (even more important)</li>
+                    <li>Trust your body to recover</li>
+                    <li>Don't nap over 20 minutes</li>
+                    <li>Back on track by that evening</li>
+                </ol>
+            </div>
+
+            <h2>The Compound Effect</h2>
+            <p>Sleep improvements compound:</p>
+            <ul>
+                <li><strong>Week 1:</strong> Fall asleep faster</li>
+                <li><strong>Week 2:</strong> Fewer night wakings</li>
+                <li><strong>Week 3:</strong> More morning energy</li>
+                <li><strong>Week 4:</strong> Better focus and mood</li>
+                <li><strong>Month 2:</strong> You've forgotten what chronic fatigue feels like</li>
+            </ul>
+
+            <div class="success-box">
+                <h4>Success Metrics</h4>
+                <p>You know it's fully integrated when:</p>
+                <ul class="checkbox-list">
+                    <li>You follow protocol without thinking</li>
+                    <li>Missing one element feels "off"</li>
+                    <li>Others comment on your increased energy</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Troubleshooting -->
+        <div class="chapter">
+            <h1>🔧 Troubleshooting Common Issues</h1>
+            
+            <h2>Issue 1: "I still can't fall asleep within 30 minutes"</h2>
+            
+            <div class="warning-box">
+                <h4>Possible Causes:</h4>
+                <ul>
+                    <li>Insufficient sleep pressure (not tired enough)</li>
+                    <li>Circadian rhythm mismatch</li>
+                    <li>Bedroom too warm</li>
+                    <li>Hidden caffeine/stimulants</li>
+                </ul>
+            </div>
+
+            <h3>Solutions to Try:</h3>
+
+            <div class="day-card">
+                <h4>Option A: Build more sleep pressure</h4>
+                <ul>
+                    <li>Wake up 30 minutes earlier (forces earlier tiredness)</li>
+                    <li>Add 20-minute afternoon walk</li>
+                    <li>Avoid ALL naps for one week</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <h4>Option B: Fix circadian timing</h4>
+                <ul>
+                    <li>Get morning light immediately upon waking</li>
+                    <li>Add evening light reduction (dim lights after 8 PM)</li>
+                    <li>Keep same wake time even on weekends</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <h4>Option C: Environmental check</h4>
+                <ul>
+                    <li>Room temperature under 68°F</li>
+                    <li>Complete darkness (cover all lights)</li>
+                    <li>White noise if environmental sounds</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>The 20-Minute Rule:</h4>
+                <p>If not asleep within 20 minutes, get up. Do something boring (read phone book, fold laundry) until sleepy. Return to bed. This prevents anxiety association with your bed.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Issue 2: "I wake up at 3 AM and can't fall back asleep"</h2>
+            
+            <div class="warning-box">
+                <h4>Possible Causes:</h4>
+                <ul>
+                    <li>Blood sugar drop</li>
+                    <li>Stress hormones</li>
+                    <li>Incomplete stress processing</li>
+                    <li>Alcohol consumption</li>
+                </ul>
+            </div>
+
+            <h3>Solutions to Try:</h3>
+
+            <div class="day-card">
+                <h4>Option A: Stabilize blood sugar</h4>
+                <ul>
+                    <li>Small protein snack before bed (handful of nuts)</li>
+                    <li>Avoid late-night carbs/sugar</li>
+                    <li>Check for hidden sugars in evening foods</li>
+                </ul>
+            </div>
+
+            <div class="day-card">
+                <h4>Option B: Enhanced stress processing</h4>
+                <ul>
+                    <li>Double brain dump (9 PM and right before bed)</li>
+                    <li>Add afternoon tension release session</li>
+                    <li>Morning journaling to process next-day anxiety</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>The 3 AM Protocol:</h4>
+                <p>When you wake:</p>
+                <ol>
+                    <li>Don't check time/phone</li>
+                    <li>Do progressive muscle relaxation</li>
+                    <li>If not asleep in 20 min, get up and read (dim light only)</li>
+                    <li>Return when sleepy</li>
+                </ol>
+                <p><strong>Never do:</strong> Scroll phone, watch TV, turn on bright lights, stress about being awake</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h2>Issue 3: "I feel more tired after 8 hours than after 6 hours"</h2>
+            
+            <div class="highlight-box">
+                <h4>The Sleep Cycle Explanation:</h4>
+                <p>Sleep happens in 90-minute cycles. Waking during deep sleep causes grogginess (sleep inertia).</p>
+                
+                <h4>Your Personal Sleep Number:</h4>
+                <p>Try waking at these intervals:</p>
+                <ul>
+                    <li>6 hours (4 cycles)</li>
+                    <li>7.5 hours (5 cycles)</li>
+                    <li>9 hours (6 cycles)</li>
+                </ul>
+                <p>Most people feel best with 5 complete cycles (7.5 hours) rather than 8 hours which interrupts cycle 6.</p>
+                
+                <p><strong>Solution:</strong> Set alarm for cycle completion rather than arbitrary 8 hours.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- 30-Day Transformation -->
+        <div class="chapter">
+            <h1>📈 The 30-Day Transformation Timeline</h1>
+            
+            <div class="day-card">
+                <h2>Week 1: The Adjustment</h2>
+                <ul>
+                    <li>You'll feel awkward following new routines</li>
+                    <li>Sleep onset improves first (falling asleep faster)</li>
+                    <li>Some nights still feel inconsistent</li>
+                    <li>Morning light feels surprisingly energizing</li>
+                    <li>You'll question if it's working</li>
+                </ul>
+                <p><strong>Trust the process</strong></p>
+            </div>
+
+            <div class="day-card">
+                <h2>Week 2: The Breakthrough</h2>
+                <ul>
+                    <li>Routines start feeling natural</li>
+                    <li>You notice when you skip a step (your body reminds you)</li>
+                    <li>Afternoon energy slumps reduce</li>
+                    <li>You'll have your first "amazing" night of sleep</li>
+                    <li>Fewer middle-of-night wakings</li>
+                </ul>
+                <p><strong>You'll see why people rave about sleep optimization</strong></p>
+            </div>
+
+            <div class="day-card">
+                <h2>Week 3: The Integration</h2>
+                <ul>
+                    <li>You forget what you did before this protocol</li>
+                    <li>Energy levels stabilize higher</li>
+                    <li>Decision-making improves noticeably</li>
+                    <li>Mood is more consistent</li>
+                    <li>Others comment: "You seem more energetic"</li>
+                </ul>
+                <p><strong>The habits are now your default</strong></p>
+            </div>
+
+            <div class="day-card">
+                <h2>Week 4: The New Normal</h2>
+                <ul>
+                    <li>You can't imagine going back to old patterns</li>
+                    <li>Sleep quality is consistent 80%+ of nights</li>
+                    <li>Bad nights recover quickly</li>
+                    <li>You've become someone who "sleeps well"</li>
+                    <li>Mental clarity is sharper</li>
+                </ul>
+                <p><strong>You've transformed your relationship with sleep</strong></p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Final Chapter -->
+        <div class="chapter">
+            <h1>✨ Final Words: The Sleep Investment</h1>
+            
+            <p>You spend one-third of your life sleeping. Optimizing it impacts the other two-thirds profoundly.</p>
+            
+            <p>This isn't about perfection. It's about consistency. Small actions, repeated daily, create remarkable results.</p>
+
+            <div class="highlight-box">
+                <h3>You now have everything you need:</h3>
+                <ul>
+                    <li>✅ The science (why it works)</li>
+                    <li>✅ The system (what to do)</li>
+                    <li>✅ The solutions (when problems arise)</li>
+                </ul>
+                <p>The only remaining ingredient is your commitment to implement.</p>
+            </div>
+
+            <h2>Your 7-Day Challenge:</h2>
+            <p>For the next 7 days, follow the protocol exactly. Don't modify it. Don't skip steps. Give it a genuine try.</p>
+            
+            <p>At the end of 7 days, evaluate:</p>
+            <ul class="checkbox-list">
+                <li>Do you fall asleep faster?</li>
+                <li>Do you wake up more refreshed?</li>
+                <li>Is your afternoon energy better?</li>
+                <li>Is your mood improved?</li>
+            </ul>
+            <p>If yes to 3 or more, you've found your solution.</p>
+
+            <h2>The Ripple Effect:</h2>
+            <div class="success-box">
+                <p>Better sleep leads to:</p>
+                <ul>
+                    <li>✨ Better decisions</li>
+                    <li>💙 Better relationships</li>
+                    <li>🏃 Better health</li>
+                    <li>📈 Better career performance</li>
+                    <li>😊 Better life enjoyment</li>
+                </ul>
+            </div>
+
+            <p style="font-size: 1.3rem; text-align: center; margin: 3rem 0; color: #64b5f6;">
+                It all starts with one decision: <strong>"Tonight, I follow my shutdown alarm."</strong>
+            </p>
+
+            <p style="text-align: center; font-size: 1.2rem;">Everything else flows from that single commitment.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Commitment Contract -->
+        <div class="chapter" style="background: linear-gradient(135deg, rgba(30, 136, 229, 0.2) 0%, rgba(21, 101, 192, 0.2) 100%); border: 3px solid #1e88e5;">
+            <h1>📝 Your Commitment Contract</h1>
+            
+            <p>I, ________________________, commit to:</p>
+            
+            <ul class="checkbox-list">
+                <li>Following the 7-Day Reset Protocol completely</li>
+                <li>Maintaining my shutdown alarm at 9:00 PM</li>
+                <li>Getting outdoor morning light within 30 minutes of waking</li>
+                <li>Removing my phone from my bedroom</li>
+                <li>Creating a wind-down routine</li>
+                <li>Giving this protocol 30 days before judging results</li>
+                <li>Tracking my energy levels daily</li>
+                <li>Seeking professional help if symptoms suggest sleep disorder</li>
+            </ul>
+
+            <p style="margin-top: 2rem;"><strong>Start Date:</strong> _______________</p>
+            <p><strong>30-Day Completion Date:</strong> _______________</p>
+            <p><strong>Signature:</strong> _________________________</p>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p style="text-align: center; font-weight: 600;">Pin this somewhere visible. Accountability matters.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Footer -->
+        <div class="chapter" style="text-align: center; background: linear-gradient(135deg, #1a237e 0%, #0a0e27 100%);">
+            <h2 style="color: #ffd700;">Your transformation begins at 9:00 PM tonight.</h2>
+            <h3 style="color: #90caf9;">Set that alarm right now.</h3>
+            
+            <div style="margin: 3rem 0; padding: 2rem; background: rgba(255, 215, 0, 0.1); border-radius: 15px;">
+                <p style="font-size: 1.1rem; color: #e0e6f0; margin: 0;">
+                    <strong>Remember:</strong> You're not just improving your sleep.<br>
+                    You're reclaiming your energy, focus, and life quality.
+                </p>
+            </div>
+
+            <p style="font-size: 1.3rem; color: #64b5f6; margin-top: 2rem;"><strong>This is your time.</strong></p>
+            
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid rgba(100, 181, 246, 0.3);">
+                <p style="color: #90caf9; font-size: 0.9rem;">Version 1.0 - 2025</p>
+                <p style="color: #7986cb; font-size: 0.85rem; margin-top: 1rem;">
+                    <strong>Medical Disclaimer:</strong> This guide provides educational information about sleep optimization and is not medical advice. Consult healthcare providers before starting any new health protocol, especially if you have existing medical conditions, take medications, or suspect a sleep disorder.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Smooth scroll for table of contents
+        document.querySelectorAll('.toc li').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                const chapters = document.querySelectorAll('.chapter');
+                if (chapters[index + 1]) {
+                    chapters[index + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
