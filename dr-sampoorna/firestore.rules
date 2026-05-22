@@ -1,0 +1,57 @@
+rules_version = '2';
+
+// Helper: superadmin or admin via custom claims
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuth() { return request.auth != null; }
+    function isAdmin() {
+      return isAuth() &&
+        (request.auth.token.superadmin == true || request.auth.token.admin == true);
+    }
+    function isOwner(uid) { return isAuth() && request.auth.uid == uid; }
+
+    // Public reads, admin writes
+    match /testimonials/{id}      { allow read: if true; allow write: if isAdmin(); }
+    match /services/{id}          { allow read: if true; allow write: if isAdmin(); }
+    match /blogPosts/{id}         { allow read: if true; allow write: if isAdmin(); }
+    match /media/{id}             { allow read: if true; allow write: if isAdmin(); }
+    match /settings/{id}          { allow read: if true; allow write: if isAdmin(); }
+
+    // Public submission, admin read/manage
+    match /contactMessages/{id} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+    match /consultations/{id} {
+      allow create: if true;
+      // user can read their own bookings (matched by email); admin can do anything
+      allow read: if isAdmin() || (isAuth() && resource.data.email == request.auth.token.email);
+      allow update, delete: if isAdmin();
+    }
+    match /newsletter/{id} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+    // Trigger Email extension queue
+    match /mail/{id} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // User-owned data
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid) || isAdmin();
+      allow delete: if isOwner(uid) || isAdmin();
+
+      match /journal/{eid}     { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /bookmarks/{slug}  { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /learning/{lid}    { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /onboarding/{oid}  { allow read, write: if isOwner(uid) || isAdmin(); }
+    }
+
+    match /adminLogs/{id} { allow read, write: if isAdmin(); }
+  }
+}
