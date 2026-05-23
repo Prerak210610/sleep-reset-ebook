@@ -14,6 +14,7 @@ import { whatsappLink, WA_MESSAGES, generateBookingRef } from "@/lib/utils";
 import { getFirebase } from "@/lib/firebase";
 import { useSound } from "@/stores/sound";
 import { useLang } from "@/stores/lang";
+import { useBooking } from "@/stores/booking";
 
 export default function ServicesPage() {
   return (
@@ -42,11 +43,12 @@ export default function ServicesPage() {
 }
 
 function ServicesHero() {
+  const openBooking = useBooking((s) => s.openModal);
   return (
     <section className="relative min-h-[70vh] -mt-[106px] pt-[120px] flex items-end text-creme-warm overflow-hidden">
       <div className="absolute inset-0">
         <StorageImage path={ASSETS.hero} alt="Services hero" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-forest-deep/65" />
+        <div className="absolute inset-0 bg-chocolate-deep/65" />
         <div className="absolute inset-0 grain pointer-events-none" />
       </div>
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 pb-20 w-full">
@@ -57,13 +59,7 @@ function ServicesHero() {
           Yoga & Wellness Services Backed by 22+ Years of Evidence-Informed Practice
         </WordReveal>
         <div className="mt-10">
-          <GoldButton
-            as="a"
-            href={whatsappLink(WA_MESSAGES.general)}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="lg"
-          >
+          <GoldButton onClick={() => openBooking()} size="lg">
             Book Personalized Consultation
           </GoldButton>
         </div>

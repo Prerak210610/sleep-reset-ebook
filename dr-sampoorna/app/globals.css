@@ -14,14 +14,14 @@
 }
 
 .dark {
-  --bg: #0D1F1A;
+  --bg: #1A0A00;
   --fg: #F5ECD7;
   --heading: #F5ECD7;
   --muted: #C9B98F;
   --gold: #C8892A;
   --line: rgba(245, 236, 215, 0.12);
-  --card: #112823;
-  --overlay: rgba(8, 21, 17, 0.7);
+  --card: #2A1308;
+  --overlay: rgba(15, 5, 0, 0.7);
 }
 
 * {

@@ -7,6 +7,7 @@ import { useTheme } from "@/stores/theme";
 import { useLang } from "@/stores/lang";
 import { useSound } from "@/stores/sound";
 import { useAuth } from "@/stores/auth";
+import { useBooking } from "@/stores/booking";
 import { whatsappLink, WA_MESSAGES, cn } from "@/lib/utils";
 import GoldButton from "./GoldButton";
 
@@ -32,6 +33,7 @@ export default function Navbar() {
   const toggleMute = useSound((s) => s.toggleMute);
   const user = useAuth((s) => s.user);
   const isAdmin = useAuth((s) => s.isAdmin);
+  const openBooking = useBooking((s) => s.openModal);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -51,7 +53,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-[34px] inset-x-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-forest/[0.97] backdrop-blur-md border-b border-gold/30 text-creme-warm"
+            ? "bg-chocolate-deep/[0.97] backdrop-blur-md border-b border-gold/30 text-creme-warm"
             : "bg-transparent text-creme-warm"
         )}
       >
@@ -103,10 +105,7 @@ export default function Navbar() {
             </button>
 
             <GoldButton
-              as="a"
-              href={whatsappLink(WA_MESSAGES.general)}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => openBooking()}
               className="hidden md:inline-flex"
               size="md"
             >
@@ -146,7 +145,7 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-0 z-[60] bg-forest-deep text-creme-warm transition-transform duration-500 lg:hidden",
+          "fixed inset-0 z-[60] bg-chocolate-deep text-creme-warm transition-transform duration-500 lg:hidden",
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -169,10 +168,10 @@ export default function Navbar() {
           ))}
           <div className="pt-6 border-t border-gold/20 mt-2 space-y-4">
             <GoldButton
-              as="a"
-              href={whatsappLink(WA_MESSAGES.general)}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => {
+                openBooking();
+                setOpen(false);
+              }}
               size="lg"
               className="w-full"
             >

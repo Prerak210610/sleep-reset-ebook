@@ -26,10 +26,12 @@ const config: Config = {
           light: "#E5B25C",
           deep: "#9C6A1F"
         },
+        // Forest aliases now point to chocolate values per brand revision.
+        // Palette is Cream + Chocolate Brown + Gold only.
         forest: {
-          DEFAULT: "#1B4D3E",
-          deep: "#0D1F1A",
-          dark: "#081511"
+          DEFAULT: "#3D1F0F",
+          deep: "#1A0A00",
+          dark: "#0F0500"
         }
       },
       fontFamily: {

@@ -5,11 +5,11 @@ import GoldButton from "@/components/GoldButton";
 import WordReveal from "@/components/animations/WordReveal";
 import { ASSETS } from "@/lib/storage";
 import { useLang } from "@/stores/lang";
-import { whatsappLink, WA_MESSAGES } from "@/lib/utils";
-import Link from "next/link";
+import { useBooking } from "@/stores/booking";
 
 export default function Hero() {
   const tt = useLang((s) => s.t);
+  const openModal = useBooking((s) => s.openModal);
 
   return (
     <section className="relative min-h-[100vh] -mt-[106px] pt-[120px] flex items-center text-creme-warm overflow-hidden">
@@ -20,7 +20,7 @@ export default function Hero() {
           alt="Dr. Sampoorna - therapeutic yoga"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-forest-deep/[0.65]" />
+        <div className="absolute inset-0 bg-chocolate-deep/[0.65]" />
         <div className="absolute inset-0 grain pointer-events-none" />
       </div>
 
@@ -39,13 +39,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <GoldButton
-              as="a"
-              href={whatsappLink(WA_MESSAGES.general)}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="lg"
-            >
+            <GoldButton onClick={() => openModal()} size="lg">
               {tt("hero.book")}
             </GoldButton>
             <GoldButton as="a" href="/about" variant="ghost" size="lg" className="text-creme-warm">
@@ -71,8 +65,9 @@ export default function Hero() {
                 path={ASSETS.founderPortrait}
                 alt="Dr. Sampoorna portrait"
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center top" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-chocolate-deep/40 to-transparent" />
             </div>
           </div>
         </div>

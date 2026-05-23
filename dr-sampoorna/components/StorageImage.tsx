@@ -9,13 +9,14 @@ interface Props {
   alt: string;
   className?: string;
   fallbackClassName?: string;
+  style?: React.CSSProperties;
 }
 
 /**
  * Loads an image from Firebase Storage by path. Until the asset is uploaded,
  * shows a tasteful warm placeholder (grain + soft cream) — never a broken image.
  */
-export default function StorageImage({ path, alt, className, fallbackClassName }: Props) {
+export default function StorageImage({ path, alt, className, fallbackClassName, style }: Props) {
   const [url, setUrl] = useState<string>("");
   const [errored, setErrored] = useState(false);
 
@@ -53,6 +54,7 @@ export default function StorageImage({ path, alt, className, fallbackClassName }
       decoding="async"
       onError={() => setErrored(true)}
       className={className}
+      style={style}
     />
   );
 }

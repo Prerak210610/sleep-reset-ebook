@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { resolveAsset } from "@/lib/storage";
+import { isYouTubeUrl, isYouTubeShorts, youTubeEmbed } from "@/lib/utils";
 
 interface Props {
   open: boolean;
@@ -33,6 +34,11 @@ export default function VideoModal({ open, onClose, path, title }: Props) {
 
   if (!open) return null;
 
+  const isYT = isYouTubeUrl(url);
+  const isShorts = isYT && isYouTubeShorts(url);
+  // Vertical aspect for Shorts; standard 16:9 otherwise
+  const aspectClass = isShorts ? "aspect-[9/16] max-h-[85vh]" : "aspect-video w-full max-w-4xl";
+
   return (
     <div
       className="fixed inset-0 z-[100] bg-black/85 backdrop-blur flex items-center justify-center p-4"
@@ -45,24 +51,34 @@ export default function VideoModal({ open, onClose, path, title }: Props) {
       >
         <X size={28} />
       </button>
+
       <div
-        className="w-full max-w-4xl aspect-video bg-black"
+        className={`${aspectClass} bg-black`}
         onClick={(e) => e.stopPropagation()}
       >
-        {url ? (
+        {!url ? (
+          <div className="w-full h-full flex items-center justify-center text-creme-warm font-accent italic">
+            Loading…
+          </div>
+        ) : isYT ? (
+          <iframe
+            src={youTubeEmbed(url, { autoplay: true })}
+            title={title || "video"}
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
           <video
             src={url}
             controls
             autoPlay
-            className="w-full h-full"
+            className="w-full h-full object-contain"
             playsInline
           />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center text-creme-warm font-accent italic">
-            Loading…
-          </div>
         )}
       </div>
+
       {title && (
         <p className="absolute bottom-6 left-6 right-6 text-center text-creme-warm font-accent italic">
           {title}

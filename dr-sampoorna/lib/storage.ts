@@ -6,11 +6,14 @@ import { getFirebase } from "./firebase";
 const cache = new Map<string, string>();
 
 /**
- * Resolve a Firebase Storage path to a download URL.
+ * Resolve a Firebase Storage path to a download URL, OR pass through a full URL.
  * Falls back to a placeholder gradient if not found, so the UI never breaks
  * before assets are uploaded.
  */
 export async function resolveAsset(path: string, fallback?: string): Promise<string> {
+  if (!path) return fallback ?? "";
+  // If it's already a full URL (e.g. YouTube), pass through unchanged
+  if (/^https?:\/\//i.test(path)) return path;
   if (cache.has(path)) return cache.get(path)!;
   try {
     const { storage } = getFirebase();
@@ -26,37 +29,46 @@ export async function resolveAsset(path: string, fallback?: string): Promise<str
   }
 }
 
-/** Asset registry — maps friendly slot names to Storage paths per the upload table */
+/** Asset registry — maps friendly slot names to Storage paths or YouTube URLs */
 export const ASSETS = {
-  hero: "hero/service-hero.jpg",
+  // Hero / founder
+  hero: "hero/service-hero.jpg.jpeg",
   founderPortrait: "founder/founder-portrait.jpg",
   founderTeaching: "founder/founder-teaching.jpg",
+
+  // Session photos
   serviceSession1: "photos/sessions/WhatsApp Image 2026-05-17 at 10.14.05 PM.jpeg",
   serviceSession2: "photos/sessions/WhatsApp Image 2026-05-17 at 10.14.16 PM.jpeg",
   serviceSession3: "photos/sessions/Screenshot 2026-05-17 215326.png",
   serviceSession4: "photos/sessions/WhatsApp Image 2026-05-17 at 10.28.55 PM.jpeg",
-  // News videos
-  newsIndiaTV: "news/WhatsApp Video 2026-05-12 at 2.48.42 PM.mp4",
-  newsZee: "news/WhatsApp Video 2026-05-17 at 9.26.52 PM.mp4",
-  newsDarshan: "news/WhatsApp Video 2026-05-17 at 8.45.58 PM.mp4",
-  news24: "news/WhatsApp Video 2026-05-17 at 9.25.50 PM.mp4",
-  // Wellness series 1..7
-  wellness1: "wellness-series/WhatsApp Video 2026-05-12 at 2.48.23 PM.mp4",
-  wellness2: "wellness-series/WhatsApp Video 2026-05-12 at 2.48.23 PM (1).mp4",
-  wellness3: "wellness-series/WhatsApp Video 2026-05-12 at 2.48.28 PM.mp4",
-  wellness4: "wellness-series/WhatsApp Video 2026-05-12 at 2.48.33 PM.mp4",
-  wellness5: "wellness-series/WhatsApp Video 2026-05-12 at 2.48.42 PM.mp4",
-  wellness6: "wellness-series/WhatsApp Video 2026-05-12 at 2.49.01 PM.mp4",
-  wellness7: "wellness-series/WhatsApp Video 2026-05-12 at 2.49.07 PM.mp4",
+
+  // ── News videos (YouTube URLs) ────────────────────────────────────
+  newsIndiaTV: "https://youtu.be/23wa9LMDqVs",
+  newsZee:     "https://youtu.be/1lResLlpRvM",
+  newsDarshan: "https://youtu.be/NBCVkhIR-RY",
+  news24:      "https://youtu.be/QK1pYRt0CBc",
+
+  // ── India TV Wellness Series (YouTube URLs) ───────────────────────
+  wellness1: "https://youtu.be/B6VlxPBpuZc", // Low BP
+  wellness2: "https://youtu.be/WwM-RRisFXg", // High BP & Stress
+  wellness3: "https://youtu.be/eXzoSgbrB8c", // Eye Wellness
+  wellness4: "https://youtu.be/aaiSxlTHhc4", // Face Glow
+  wellness5: "https://youtu.be/23wa9LMDqVs", // Cervical
+  wellness6: "https://youtu.be/ZTj2svDmc6Q", // Frozen Shoulder
+  wellness7: "https://youtu.be/x5UU6InGQS8", // Sleep
+
+  // ── Atal Mithila Samman (YouTube) ─────────────────────────────────
+  atalMithila: "https://youtu.be/o6rclXU5EYo",
+
   // Professional photos
-  professional1: "photos/professional/service-professional-1.jpg",
-  professional2: "photos/professional/service-professional-2.jpg",
+  professional1: "photos/professional/WhatsApp Image 2026-05-12 at 2.48.08 PM.jpeg",
+  professional2: "photos/professional/service-hero.jpg.jpeg",
   professional3: "photos/professional/service-professional-3.jpg",
-  // Certificates
+
+  // Certificates (still images on Storage)
   ayush: "certificates/WhatsApp Image 2026-05-14 at 4.47.48 PM.jpeg",
   ryt300: "certificates/WhatsApp Image 2026-05-13 at 4.40.52 PM.jpeg",
   ryt200: "certificates/WhatsApp Image 2026-05-13 at 5.14.59 PM.jpeg",
-  atalMithila: "certificates/WhatsApp Video 2026-05-15 at 1.20.43 AM.mp4",
   // Service cards 30-34
   cardCorporate: "service-cards/WhatsApp Image 2026-05-14 at 4.53.32 PM.jpeg",
   cardGroup: "service-cards/Screenshot 2026-05-17 215326.png",
@@ -82,9 +94,9 @@ export const ASSETS = {
   bodyWeight: "body-problems/Screenshot 2026-05-17 195414.png",
   bodyDigestion: "body-problems/Screenshot 2026-05-17 195443.png",
   bodyPosture: "body-problems/Screenshot 2026-05-17 195523.png",
-  // Testimonials videos
-  testimonialVideo1: "testimonials/WhatsApp Video 2026-05-13 at 4.50.30 PM.mp4",
-  testimonialVideo2: "testimonials/WhatsApp Video 2026-05-13 at 4.48.17 PM.mp4",
+  // ── Testimonial videos (YouTube Shorts — vertical) ───────────────
+  testimonialVideo1: "https://youtube.com/shorts/8AOxeaIsuig", // Asha Jha
+  testimonialVideo2: "https://youtube.com/shorts/y-VdUgur5lE", // Chavi Sharma
   // Testimonial faces
   face1: "testimonials/faces/Screenshot 2026-05-14 125823.png",
   face2: "testimonials/faces/Screenshot 2026-05-14 125842.png",

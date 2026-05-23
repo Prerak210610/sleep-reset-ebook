@@ -38,3 +38,60 @@ export function formatDate(d: Date | string | number) {
     year: "numeric"
   });
 }
+
+
+
+/* ------------------------------------------------------------------ */
+/* YouTube helpers                                                     */
+/* ------------------------------------------------------------------ */
+
+const YT_PATTERNS = [
+  /youtu\.be\/([^?&\/\s]+)/,
+  /youtube\.com\/watch\?v=([^?&\s]+)/,
+  /youtube\.com\/shorts\/([^?&\/\s]+)/,
+  /youtube\.com\/embed\/([^?&\/\s]+)/
+];
+
+export function isYouTubeUrl(s: string | undefined | null): boolean {
+  if (!s) return false;
+  return /(?:youtu\.be|youtube\.com)/.test(s);
+}
+
+export function youTubeId(url: string): string | null {
+  for (const p of YT_PATTERNS) {
+    const m = url.match(p);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+export function isYouTubeShorts(url: string): boolean {
+  return /youtube\.com\/shorts\//.test(url);
+}
+
+export function youTubeEmbed(url: string, opts: { autoplay?: boolean } = {}) {
+  const id = youTubeId(url);
+  if (!id) return "";
+  const params = new URLSearchParams({
+    rel: "0",
+    modestbranding: "1",
+    playsinline: "1",
+    ...(opts.autoplay ? { autoplay: "1" } : {})
+  });
+  return `https://www.youtube.com/embed/${id}?${params.toString()}`;
+}
+
+export function youTubeThumb(url: string): string {
+  const id = youTubeId(url);
+  if (!id) return "";
+  // maxresdefault is highest quality; not always available, hqdefault is fallback
+  return `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+}
+
+/* ------------------------------------------------------------------ */
+/* Logo helpers (Google favicon API — public, real logos for brands)   */
+/* ------------------------------------------------------------------ */
+
+export function logoFromDomain(domain: string, size = 128): string {
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
+}

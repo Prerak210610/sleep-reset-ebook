@@ -6,6 +6,7 @@ import { useAuth } from "@/stores/auth";
 import { getFirebase } from "@/lib/firebase";
 import { whatsappLink, WA_MESSAGES, formatDate, cn } from "@/lib/utils";
 import GoldButton from "@/components/GoldButton";
+import { useBooking } from "@/stores/booking";
 
 interface Booking {
   id: string;
@@ -26,6 +27,7 @@ const STATUS_COLOR: Record<Booking["status"], string> = {
 
 export default function ConsultationsPage() {
   const user = useAuth((s) => s.user);
+  const openBooking = useBooking((s) => s.openModal);
   const [items, setItems] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -62,7 +64,7 @@ export default function ConsultationsPage() {
         <div className="bg-creme dark:bg-forest border border-[var(--line)] p-10 text-center">
           <p className="font-serif text-2xl mb-2">No bookings yet.</p>
           <p className="font-accent italic opacity-80 mb-6">Book your first consultation with Dr. Sampoorna.</p>
-          <GoldButton as="a" href="/services#book">Book Consultation</GoldButton>
+          <GoldButton onClick={() => openBooking()}>Book Consultation</GoldButton>
         </div>
       ) : (
         <div className="space-y-4">

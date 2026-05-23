@@ -5,21 +5,31 @@
 import { ASSETS } from "./storage";
 import { WA_MESSAGES } from "./utils";
 
-export const PARTNERS = [
-  "Bharat Petroleum",
-  "Indian Oil",
-  "ONGC",
-  "Hindustan Petroleum",
-  "Dell"
+export const PARTNERS: { name: string; domain?: string }[] = [
+  { name: "Bharat Petroleum", domain: "bharatpetroleum.com" },
+  { name: "Indian Oil", domain: "iocl.com" },
+  { name: "ONGC", domain: "ongcindia.com" },
+  { name: "Hindustan Petroleum", domain: "hindustanpetroleum.com" },
+  { name: "Dell", domain: "dell.com" }
 ];
 
-export const MEDIA_OUTLETS = ["India TV", "News24", "Zee News", "N Darshan"];
+export const MEDIA_OUTLETS: { name: string; domain?: string }[] = [
+  { name: "India TV", domain: "indiatvnews.com" },
+  { name: "News24", domain: "news24online.com" },
+  { name: "Zee News", domain: "zeenews.india.com" },
+  { name: "N Darshan" }
+];
 
+export const RECOGNITIONS: { name: string; domain?: string }[] = [
+  { name: "Ministry of AYUSH", domain: "ayush.gov.in" },
+  { name: "Yoga Alliance USA", domain: "yogaalliance.org" }
+];
+
+// Legacy plain string list — kept for any code still consuming it
 export const MARQUEE_ITEMS = [
-  ...PARTNERS,
-  ...MEDIA_OUTLETS,
-  "Ministry of AYUSH",
-  "Yoga Alliance USA"
+  ...PARTNERS.map((p) => p.name),
+  ...MEDIA_OUTLETS.map((m) => m.name),
+  ...RECOGNITIONS.map((r) => r.name)
 ];
 
 export const STATS = [
@@ -136,7 +146,7 @@ export const SERVICES: {
       "Reporting for HR teams"
     ],
     format: "On-site / Online · Group",
-    price: "₹499 / session",
+    price: "₹197 Online · ₹497 Offline",
     image: ASSETS.cardCorporate,
     whatsapp: WA_MESSAGES.corporate
   },
@@ -158,7 +168,7 @@ export const SERVICES: {
       "Doubt-clearing"
     ],
     format: "Online · Group",
-    price: "₹499 / session",
+    price: "₹197 Online · ₹497 Offline",
     image: ASSETS.cardGroup,
     whatsapp: WA_MESSAGES.group
   },
@@ -180,7 +190,7 @@ export const SERVICES: {
       "Progress tracking"
     ],
     format: "Online / Offline · 1:1",
-    price: "₹499 / session",
+    price: "₹197 Online · ₹497 Offline",
     image: ASSETS.cardPersonal,
     whatsapp: WA_MESSAGES.personal
   },
@@ -202,7 +212,7 @@ export const SERVICES: {
       "Lifestyle guidance"
     ],
     format: "Online / Offline · 1:1",
-    price: "₹499 / session",
+    price: "₹197 Online · ₹497 Offline",
     image: ASSETS.cardFertility,
     whatsapp: WA_MESSAGES.fertility
   },
@@ -224,7 +234,7 @@ export const SERVICES: {
       "Practice with Dr. Sampoorna's framework"
     ],
     format: "Online / Offline · 1:1",
-    price: "₹499 / session",
+    price: "₹197 Online · ₹497 Offline",
     image: ASSETS.cardTherapeutic,
     whatsapp: WA_MESSAGES.therapeutic
   }

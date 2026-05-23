@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MagneticCursor from "@/components/MagneticCursor";
+import BookingModal from "@/components/BookingModal";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="pt-[106px]">{children}</main>
           <Footer />
           <FloatingWhatsApp />
+          <BookingModal />
         </Providers>
       </body>
     </html>

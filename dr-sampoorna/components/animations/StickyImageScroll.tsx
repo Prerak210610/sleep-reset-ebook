@@ -61,6 +61,7 @@ export default function StickyImageScroll({ heading, kicker, slides }: Props) {
                   path={s.path}
                   alt={s.alt ?? s.caption}
                   className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "center top" }}
                 />
               </div>
               <p className="mt-6 font-accent italic text-lg md:text-xl text-[var(--muted)]">
