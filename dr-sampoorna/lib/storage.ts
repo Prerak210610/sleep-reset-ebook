@@ -67,8 +67,8 @@ export const ASSETS = {
 
   // Certificates (still images on Storage)
   ayush: "certificates/WhatsApp Image 2026-05-14 at 4.47.48 PM.jpeg",
-  ryt300: "certificates/WhatsApp Image 2026-05-13 at 4.40.52 PM.jpeg",
-  ryt200: "certificates/WhatsApp Image 2026-05-13 at 5.14.59 PM.jpeg",
+  ryt300: "certificates/ChatGPT Image May 22, 2026, 07_20_56 PM.png",
+  ryt200: "certificates/ChatGPT Image May 22, 2026, 07_22_54 PM.png",
   // Service cards 30-34
   cardCorporate: "service-cards/WhatsApp Image 2026-05-14 at 4.53.32 PM.jpeg",
   cardGroup: "service-cards/Screenshot 2026-05-17 215326.png",
