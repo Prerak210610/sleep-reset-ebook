@@ -90,28 +90,22 @@ export const EXPERTISE = [
   }
 ];
 
-export const ASANAS: { name: string; benefit: string }[] = [
-  { name: "Tadasana", benefit: "Postural alignment & spinal length" },
-  { name: "Vrikshasana", benefit: "Balance and focus" },
-  { name: "Adho Mukha Svanasana", benefit: "Full-body decompression" },
-  { name: "Bhujangasana", benefit: "Spinal mobility & chest opening" },
-  { name: "Setu Bandhasana", benefit: "Lower back support, hip release" },
-  { name: "Balasana", benefit: "Restorative reset for nervous system" },
-  { name: "Paschimottanasana", benefit: "Hamstring length, calming" },
-  { name: "Ardha Matsyendrasana", benefit: "Spinal rotation, digestion" },
-  { name: "Trikonasana", benefit: "Lateral spine, hip mobility" },
-  { name: "Virabhadrasana II", benefit: "Strength & stamina" },
-  { name: "Ustrasana", benefit: "Heart opening, posture" },
-  { name: "Marjariasana", benefit: "Spinal articulation" },
-  { name: "Padmasana", benefit: "Meditation, hip opening" },
-  { name: "Shavasana", benefit: "Deep nervous system rest" },
-  { name: "Dhanurasana", benefit: "Backline strength" },
-  { name: "Vajrasana", benefit: "Digestion post-meal" },
-  { name: "Pranayama Seat", benefit: "Breath training base" },
-  { name: "Surya Namaskar A", benefit: "Warm-up flow" },
-  { name: "Surya Namaskar B", benefit: "Cardiovascular activation" },
-  { name: "Garudasana", benefit: "Joint stability" },
-  { name: "Anulom Vilom", benefit: "Pranic balance, calm" }
+export const ASANAS: { name: string; benefit: string; image?: string }[] = [
+  { name: "Raja Kapotasana", benefit: "Improves flexibility, opens hips, stretches spine", image: "/images/WhatsApp Image 2026-05-12 at 2.48.20 PM (2).jpeg" },
+  { name: "Baddha Konasana", benefit: "Opens hips, improves posture, relaxes mind", image: "/images/WhatsApp Image 2026-05-12 at 2.48.22 PM (1).jpeg" },
+  { name: "Halasana", benefit: "Improves spinal flexibility, aids digestion, calms nerves", image: "/images/WhatsApp Image 2026-05-12 at 2.48.20 PM.jpeg" },
+  { name: "Janu Sirsasana", benefit: "Stretches hamstrings, improves digestion, relaxes body", image: "/images/WhatsApp Image 2026-05-12 at 2.48.19 PM (1).jpeg" },
+  { name: "Garudasana", benefit: "Improves balance, strengthens legs, boosts focus", image: "/images/WhatsApp Image 2026-05-12 at 2.48.19 PM.jpeg" },
+  { name: "Parivrtta Janu Sirsasana", benefit: "Improves side flexibility, stretches spine, aids breathing", image: "/images/WhatsApp Image 2026-05-12 at 2.48.18 PM (2).jpeg" },
+  { name: "Trikonasana", benefit: "Strengthens legs, improves balance, stretches waist", image: "/images/WhatsApp Image 2026-05-12 at 2.48.18 PM (1).jpeg" },
+  { name: "Upavistha Konasana", benefit: "Opens hips, stretches inner thighs, improves flexibility", image: "/images/WhatsApp Image 2026-05-12 at 2.48.18 PM.jpeg" },
+  { name: "Navasana", benefit: "Strengthens core, improves balance, tones abdomen", image: "/images/WhatsApp Image 2026-05-12 at 2.48.17 PM (1).jpeg" },
+  { name: "Chakrasana", benefit: "Strengthens spine, improves flexibility, boosts energy", image: "/images/WhatsApp Image 2026-05-12 at 2.48.17 PM.jpeg" },
+  { name: "Natarajasana", benefit: "Improves balance, stretches chest, strengthens legs" },
+  { name: "Mermaid Pose", benefit: "Opens shoulders, improves spinal flexibility, stretches hips" },
+  { name: "Ustrasana", benefit: "Opens chest, improves posture, stretches spine" },
+  { name: "Anjaneyasana", benefit: "Strengthens legs, stretches hips, improves balance" },
+  { name: "Adho Mukha Svanasana", benefit: "Stretches full body, strengthens arms, improves circulation" }
 ];
 
 export type ServiceKey = "corporate" | "group" | "personal" | "fertility" | "therapeutic";
@@ -310,61 +304,55 @@ export const TESTIMONIALS_VIDEO = [
   { id: "tv2", name: "Chavi Sharma", role: "House Wife", src: ASSETS.testimonialVideo2 }
 ];
 
-export const TESTIMONIALS_WRITTEN = [
-  {
-    id: "tw1",
-    name: "Priya Mehta",
-    role: "Software Engineer",
-    image: ASSETS.face1,
-    stars: 5,
-    text:
-      "Dr. Sampoorna's therapeutic plan helped me address chronic back pain after years of trying everything. Six weeks in, my mobility is genuinely different."
-  },
-  {
-    id: "tw2",
-    name: "Anand Verma",
-    role: "Banking Professional",
-    image: ASSETS.face2,
-    stars: 5,
-    text:
-      "The corporate sessions changed how my team begins the day. The framework feels clinical, the experience feels human."
-  },
-  {
-    id: "tw3",
-    name: "Riya Kapoor",
-    role: "Architect",
-    image: ASSETS.face3,
-    stars: 5,
-    text:
-      "I came in for stress, I left with a practice for life. The breathwork modules are extraordinary."
-  },
-  {
-    id: "tw4",
-    name: "Meera Iyer",
-    role: "Doctor",
-    image: ASSETS.face4,
-    stars: 5,
-    text:
-      "As a clinician myself I appreciate the evidence-informed approach. Nothing performative — careful, measured, effective."
-  },
-  {
-    id: "tw5",
-    name: "Karan Saxena",
-    role: "Entrepreneur",
-    image: ASSETS.face5,
-    stars: 5,
-    text:
-      "The SFY protocol gave my partner and me a sense of agency during a difficult journey. Holistic without ever overpromising."
-  },
-  {
-    id: "tw6",
-    name: "Sunita Rao",
-    role: "Educator",
-    image: ASSETS.face6,
-    stars: 5,
-    text:
-      "I sleep better, I move better, I think clearer. Twelve weeks of small, kind, daily steps."
-  }
+/**
+ * Each testimonial is an authentic review screenshot. The card displays the
+ * screenshot itself (which contains the review text + author) plus an avatar:
+ * either a face photo, OR an initial-letter circle when the original platform
+ * showed only a default avatar.
+ */
+export interface WrittenTestimonial {
+  id: string;
+  /** Path to the testimonial review screenshot */
+  review: string;
+  /** Path to the face photo, OR null to show an initial-letter avatar */
+  face: string | null;
+  /** Initial letter used when face is null */
+  initial?: string;
+}
+
+export const TESTIMONIALS_WRITTEN: WrittenTestimonial[] = [
+  { id: "t1",  review: "/images/Screenshot 2026-05-14 125842.png",  face: "/images/Screenshot 2026-05-23 220013.png" },
+  { id: "t2",  review: "/images/Screenshot 2026-05-14 125823.png",  face: null, initial: "R" },
+  { id: "t3",  review: "/images/Screenshot 2026-05-14 125902.png",  face: "/images/Screenshot 2026-05-23 220110.png" },
+  { id: "t4",  review: "/images/WhatsApp Image 2026-05-13 at 5.04.14 PM.jpeg", face: "/images/Screenshot 2026-05-23 220214.png" },
+  { id: "t5",  review: "/images/WhatsApp Image 2026-05-13 at 5.04.33 PM.jpeg", face: null, initial: "S" },
+  { id: "t6",  review: "/images/WhatsApp Image 2026-05-13 at 5.05.15 PM.jpeg", face: "/images/Screenshot 2026-05-23 220600.png" },
+  { id: "t7",  review: "/images/Screenshot 2026-05-23 220640.png",  face: "/images/Screenshot 2026-05-23 220706.png" },
+  { id: "t8",  review: "/images/Screenshot 2026-05-23 220750.png",  face: "/images/Screenshot 2026-05-23 220806.png" },
+  { id: "t9",  review: "/images/Screenshot 2026-05-23 220833.png",  face: "/images/Screenshot 2026-05-23 220857.png" },
+  { id: "t10", review: "/images/Screenshot 2026-05-23 220915.png",  face: "/images/Screenshot 2026-05-23 220933.png" },
+  { id: "t11", review: "/images/Screenshot 2026-05-23 220949.png",  face: "/images/Screenshot 2026-05-23 221002.png" },
+  { id: "t12", review: "/images/Screenshot 2026-05-23 221023.png",  face: "/images/Screenshot 2026-05-23 221038.png" },
+  { id: "t13", review: "/images/Screenshot 2026-05-23 221057.png",  face: "/images/Screenshot 2026-05-23 221112.png" },
+  { id: "t14", review: "/images/Screenshot 2026-05-23 221125.png",  face: "/images/Screenshot 2026-05-23 221141.png" },
+  { id: "t15", review: "/images/Screenshot 2026-05-23 221156.png",  face: "/images/Screenshot 2026-05-23 221208.png" },
+  { id: "t16", review: "/images/Screenshot 2026-05-23 221217.png",  face: "/images/Screenshot 2026-05-23 221230.png" },
+  { id: "t17", review: "/images/Screenshot 2026-05-23 221239.png",  face: "/images/Screenshot 2026-05-23 221251.png" },
+  { id: "t18", review: "/images/Screenshot 2026-05-23 221310.png",  face: "/images/Screenshot 2026-05-23 221324.png" },
+  { id: "t19", review: "/images/Screenshot 2026-05-23 221336.png",  face: "/images/Screenshot 2026-05-23 221348.png" },
+  { id: "t20", review: "/images/Screenshot 2026-05-23 221357.png",  face: "/images/Screenshot 2026-05-23 221415.png" },
+  { id: "t21", review: "/images/Screenshot 2026-05-23 221529.png",  face: "/images/Screenshot 2026-05-23 221539.png" },
+  { id: "t22", review: "/images/Screenshot 2026-05-23 221548.png",  face: "/images/Screenshot 2026-05-23 221744.png" },
+  { id: "t23", review: "/images/Screenshot 2026-05-23 221559.png",  face: "/images/Screenshot 2026-05-23 221758.png" },
+  { id: "t24", review: "/images/Screenshot 2026-05-23 221607.png",  face: "/images/Screenshot 2026-05-23 221812.png" },
+  { id: "t25", review: "/images/Screenshot 2026-05-23 221614.png",  face: "/images/Screenshot 2026-05-23 221825.png" },
+  { id: "t26", review: "/images/Screenshot 2026-05-23 221622.png",  face: "/images/Screenshot 2026-05-23 221836.png" },
+  { id: "t27", review: "/images/Screenshot 2026-05-23 221630.png",  face: "/images/Screenshot 2026-05-23 221854.png" },
+  { id: "t28", review: "/images/Screenshot 2026-05-23 221639.png",  face: "/images/Screenshot 2026-05-23 221908.png" },
+  { id: "t29", review: "/images/Screenshot 2026-05-23 221649.png",  face: "/images/Screenshot 2026-05-23 221920.png" },
+  { id: "t30", review: "/images/Screenshot 2026-05-23 221656.png",  face: "/images/Screenshot 2026-05-23 221934.png" },
+  { id: "t31", review: "/images/Screenshot 2026-05-24 131724.png",  face: "/images/Screenshot 2026-05-23 221949.png" },
+  { id: "t32", review: "/images/Screenshot 2026-05-23 221708.png",  face: "/images/Screenshot 2026-05-23 222004.png" }
 ];
 
 export const BLOG_POSTS = [

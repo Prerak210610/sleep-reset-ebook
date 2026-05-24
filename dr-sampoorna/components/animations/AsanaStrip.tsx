@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ASANAS } from "@/lib/content";
-import { ASSETS } from "@/lib/storage";
 import StorageImage from "@/components/StorageImage";
 
 export default function AsanaStrip() {
@@ -35,7 +34,8 @@ export default function AsanaStrip() {
     };
   }, [paused]);
 
-  const cards = [...ASANAS, ...ASANAS]; // duplicate for seamless loop
+  // Duplicate for seamless loop
+  const cards = [...ASANAS, ...ASANAS];
 
   return (
     <div
@@ -44,27 +44,35 @@ export default function AsanaStrip() {
       onMouseLeave={() => setPaused(false)}
     >
       <div ref={trackRef} className="flex gap-6 will-change-transform">
-        {cards.map((a, i) => {
-          const idx = (i % ASANAS.length) + 1;
-          return (
-            <div
-              key={`${a.name}-${i}`}
-              className="group flex-none w-[260px] md:w-[300px] rounded-sm bg-creme-soft dark:bg-forest/50 border border-[var(--line)] overflow-hidden hover:-translate-y-1 transition-transform duration-500"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden bg-creme-warm">
+        {cards.map((a, i) => (
+          <div
+            key={`${a.name}-${i}`}
+            className="group flex-none w-[260px] md:w-[300px] rounded-sm bg-creme-soft dark:bg-forest/50 border border-[var(--line)] overflow-hidden hover:-translate-y-1 transition-transform duration-500"
+          >
+            <div className="relative aspect-[3/4] overflow-hidden bg-creme-warm">
+              {a.image ? (
                 <StorageImage
-                  path={ASSETS.asana(idx)}
+                  path={a.image}
                   alt={a.name}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectPosition: "center top" }}
                 />
-              </div>
-              <div className="p-5">
-                <h4 className="text-2xl font-serif">{a.name}</h4>
-                <p className="text-xs uppercase tracking-widest mt-2 opacity-70">{a.benefit}</p>
-              </div>
+              ) : (
+                <div className="absolute inset-0 grain bg-creme-warm flex items-center justify-center">
+                  <span className="font-serif text-3xl text-chocolate/40 italic">
+                    {a.name.split(" ")[0]}
+                  </span>
+                </div>
+              )}
             </div>
-          );
-        })}
+            <div className="p-5">
+              <h4 className="text-xl md:text-2xl font-serif">{a.name}</h4>
+              <p className="text-[10px] uppercase tracking-widest mt-2 opacity-70 leading-relaxed">
+                {a.benefit}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
