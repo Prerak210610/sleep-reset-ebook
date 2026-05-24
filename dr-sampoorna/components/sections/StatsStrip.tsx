@@ -1,16 +1,11 @@
 "use client";
 
 import CounterUp from "@/components/animations/CounterUp";
-import LogoMarquee from "@/components/animations/LogoMarquee";
-import { STATS, PARTNERS, MEDIA_OUTLETS, RECOGNITIONS } from "@/lib/content";
+import { STATS } from "@/lib/content";
 import { useLang } from "@/stores/lang";
 
 export default function StatsStrip() {
   const tt = useLang((s) => s.t);
-
-  // Two interleaved sets so each row reads differently
-  const rowA = [...PARTNERS, ...RECOGNITIONS];
-  const rowB = [...MEDIA_OUTLETS, ...PARTNERS];
 
   return (
     <section className="relative bg-chocolate-deep text-creme-warm py-16 md:py-20 overflow-hidden">
@@ -35,14 +30,6 @@ export default function StatsStrip() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Marquee strip — real partner logos */}
-      <div className="relative mt-14 border-y border-gold/15 py-5">
-        <LogoMarquee items={rowA} speed={55} />
-      </div>
-      <div className="relative mt-px py-5 border-b border-gold/15">
-        <LogoMarquee items={rowB} reverse speed={60} />
       </div>
     </section>
   );

@@ -50,37 +50,32 @@ export default function Testimonials() {
 
         {/* Video testimonials (YouTube Shorts — vertical) */}
         <div className="grid md:grid-cols-2 gap-6 mb-14">
-          {TESTIMONIALS_VIDEO.map((v) => {
-            const thumb = isYouTubeUrl(v.src) ? youTubeThumb(v.src) : null;
-            return (
-              <button
-                key={v.id}
-                onClick={() => setOpen({ src: v.src, title: `${v.name} — ${v.role}` })}
-                className="group relative aspect-[16/10] bg-chocolate-deep grain text-creme-warm overflow-hidden text-left"
-                data-magnetic="true"
-              >
-                {thumb && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={thumb}
-                    alt={v.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-[1.03] transition-transform duration-700"
-                    style={{ objectPosition: "center top" }}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-chocolate-deep/95 via-chocolate-deep/40 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform">
-                    <Play size={24} fill="currentColor" />
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="font-serif text-2xl">{v.name}</p>
-                  <p className="font-accent italic text-sm opacity-80">{v.role}</p>
-                </div>
-              </button>
-            );
-          })}
+          {TESTIMONIALS_VIDEO.map((v) => (
+            <button
+              key={v.id}
+              onClick={() => setOpen({ src: v.src, title: `${v.name} — ${v.role}` })}
+              className="group relative aspect-[16/10] bg-chocolate-deep grain text-creme-warm overflow-hidden text-left"
+              data-magnetic="true"
+            >
+              {v.poster && (
+                <StorageImage
+                  path={v.poster}
+                  alt={v.name}
+                  className="absolute inset-0 w-full h-full object-contain bg-chocolate-deep group-hover:scale-[1.03] transition-transform duration-700"
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-chocolate-deep/95 via-chocolate-deep/30 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+                  <Play size={24} fill="currentColor" />
+                </span>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-serif text-2xl">{v.name}</p>
+                <p className="font-accent italic text-sm opacity-80">{v.role}</p>
+              </div>
+            </button>
+          ))}
         </div>
 
         {/* Written testimonials — auto-scroll horizontal carousel of review screenshots */}

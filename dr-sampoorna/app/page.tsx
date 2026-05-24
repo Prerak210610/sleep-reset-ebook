@@ -4,6 +4,7 @@ import StoryPreview from "@/components/sections/StoryPreview";
 import Expertise from "@/components/sections/Expertise";
 import AsanaSection from "@/components/sections/AsanaSection";
 import ServicesPreview from "@/components/sections/ServicesPreview";
+import CompanySection from "@/components/sections/CompanySection";
 import MediaPreview from "@/components/sections/MediaPreview";
 import WellnessSeries from "@/components/sections/WellnessSeries";
 import Testimonials from "@/components/sections/Testimonials";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Expertise />
       <AsanaSection />
       <ServicesPreview />
+      <CompanySection />
       <MediaPreview />
       <WellnessSeries />
       <Testimonials />

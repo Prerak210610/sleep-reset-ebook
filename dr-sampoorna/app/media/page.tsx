@@ -83,15 +83,23 @@ export default function MediaPage() {
                   className="group relative aspect-video bg-chocolate-deep grain text-creme-warm overflow-hidden text-left"
                   data-magnetic="true"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform">
+                  {v.poster && (
+                    <StorageImage
+                      path={v.poster}
+                      alt={v.title}
+                      className="absolute inset-0 w-full h-full object-contain bg-chocolate-deep group-hover:scale-[1.03] transition-transform duration-700"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-chocolate-deep/40 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
                       <Play size={24} fill="currentColor" />
                     </span>
                   </div>
                   <div className="absolute top-4 left-4 bg-chocolate-deep/85 text-gold font-accent italic text-[11px] tracking-widest uppercase px-3 py-1">
                     {v.channel}
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-chocolate-deep/95 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-chocolate-deep/95 to-transparent pointer-events-none">
                     <p className="font-serif text-2xl">{v.title}</p>
                   </div>
                 </button>
@@ -114,9 +122,16 @@ export default function MediaPage() {
                   className="group relative bg-creme-soft dark:bg-forest border border-[var(--line)] hover:-translate-y-1 transition-transform text-left"
                   data-magnetic="true"
                 >
-                  <div className="relative aspect-video bg-forest-deep grain">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="w-12 h-12 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep">
+                  <div className="relative aspect-video bg-chocolate-deep grain overflow-hidden">
+                    {v.poster && (
+                      <StorageImage
+                        path={v.poster}
+                        alt={v.title}
+                        className="absolute inset-0 w-full h-full object-contain bg-chocolate-deep group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                    )}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <span className="w-12 h-12 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
                         <Play size={16} fill="currentColor" />
                       </span>
                     </div>
@@ -190,9 +205,14 @@ export default function MediaPage() {
                   className="group bg-chocolate-deep text-creme-warm relative overflow-hidden text-left hover:-translate-y-1 transition-transform"
                   data-magnetic="true"
                 >
-                  <div className="relative aspect-[4/3] grain">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="w-14 h-14 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep">
+                  <div className="relative aspect-[4/3] grain bg-chocolate-deep overflow-hidden">
+                    <StorageImage
+                      path={ASSETS.thumbAtalMithila}
+                      alt="Atal Mithila Samman"
+                      className="absolute inset-0 w-full h-full object-contain bg-chocolate-deep"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <span className="w-14 h-14 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
                         <Play size={20} fill="currentColor" />
                       </span>
                     </div>

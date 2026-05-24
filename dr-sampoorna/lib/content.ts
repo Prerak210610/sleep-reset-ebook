@@ -5,19 +5,19 @@
 import { ASSETS } from "./storage";
 import { WA_MESSAGES } from "./utils";
 
-export const PARTNERS: { name: string; domain?: string }[] = [
-  { name: "Bharat Petroleum", domain: "bharatpetroleum.com" },
-  { name: "Indian Oil", domain: "iocl.com" },
-  { name: "ONGC", domain: "ongcindia.com" },
-  { name: "Hindustan Petroleum", domain: "hindustanpetroleum.com" },
-  { name: "Dell", domain: "dell.com" }
+export const PARTNERS: { name: string; domain?: string; logo?: string }[] = [
+  { name: "Dell Technologies", domain: "dell.com", logo: ASSETS.logoDell },
+  { name: "Indian Oil", domain: "iocl.com", logo: ASSETS.logoIndianOil },
+  { name: "Hindustan Petroleum", domain: "hindustanpetroleum.com", logo: ASSETS.logoHPCL },
+  { name: "ONGC", domain: "ongcindia.com", logo: ASSETS.logoONGC },
+  { name: "Bharat Petroleum", domain: "bharatpetroleum.com", logo: ASSETS.logoBPCL }
 ];
 
-export const MEDIA_OUTLETS: { name: string; domain?: string }[] = [
-  { name: "India TV", domain: "indiatvnews.com" },
-  { name: "News24", domain: "news24online.com" },
-  { name: "Zee News", domain: "zeenews.india.com" },
-  { name: "N Darshan" }
+export const MEDIA_OUTLETS: { name: string; domain?: string; logo?: string }[] = [
+  { name: "India TV", domain: "indiatvnews.com", logo: ASSETS.logoIndiaTV },
+  { name: "Zee News", domain: "zeenews.india.com", logo: ASSETS.logoZee },
+  { name: "News24", domain: "news24online.com", logo: ASSETS.logoNews24 },
+  { name: "N Darshan", logo: ASSETS.logoNDarshan }
 ];
 
 export const RECOGNITIONS: { name: string; domain?: string }[] = [
@@ -101,11 +101,11 @@ export const ASANAS: { name: string; benefit: string; image?: string }[] = [
   { name: "Upavistha Konasana", benefit: "Opens hips, stretches inner thighs, improves flexibility", image: "/images/WhatsApp Image 2026-05-12 at 2.48.18 PM.jpeg" },
   { name: "Navasana", benefit: "Strengthens core, improves balance, tones abdomen", image: "/images/WhatsApp Image 2026-05-12 at 2.48.17 PM (1).jpeg" },
   { name: "Chakrasana", benefit: "Strengthens spine, improves flexibility, boosts energy", image: "/images/WhatsApp Image 2026-05-12 at 2.48.17 PM.jpeg" },
-  { name: "Natarajasana", benefit: "Improves balance, stretches chest, strengthens legs" },
-  { name: "Mermaid Pose", benefit: "Opens shoulders, improves spinal flexibility, stretches hips" },
-  { name: "Ustrasana", benefit: "Opens chest, improves posture, stretches spine" },
-  { name: "Anjaneyasana", benefit: "Strengthens legs, stretches hips, improves balance" },
-  { name: "Adho Mukha Svanasana", benefit: "Stretches full body, strengthens arms, improves circulation" }
+  { name: "Natarajasana", benefit: "Improves balance, stretches chest, strengthens legs", image: "/images/WhatsApp Image 2026-05-12 at 2.48.15 PM.jpeg" },
+  { name: "Mermaid Pose", benefit: "Opens shoulders, improves spinal flexibility, stretches hips", image: "/images/WhatsApp Image 2026-05-12 at 2.48.11 PM.jpeg" },
+  { name: "Ustrasana", benefit: "Opens chest, improves posture, stretches spine", image: "/images/WhatsApp Image 2026-05-12 at 2.48.09 PM.jpeg" },
+  { name: "Anjaneyasana", benefit: "Strengthens legs, stretches hips, improves balance", image: "/images/WhatsApp Image 2026-05-12 at 2.48.07 PM (1).jpeg" },
+  { name: "Adho Mukha Svanasana", benefit: "Stretches full body, strengthens arms, improves circulation", image: "/images/WhatsApp Image 2026-05-12 at 2.48.05 PM (2).jpeg" }
 ];
 
 export type ServiceKey = "corporate" | "group" | "personal" | "fertility" | "therapeutic";
@@ -283,25 +283,25 @@ export const BODY_PROBLEMS = [
 ];
 
 export const NEWS_VIDEOS = [
-  { id: "n1", channel: "India TV", title: "Featured on India TV Wellness", src: ASSETS.newsIndiaTV },
-  { id: "n2", channel: "Zee News", title: "Featured on Zee News", src: ASSETS.newsZee },
-  { id: "n3", channel: "N Darshan", title: "Featured on N Darshan", src: ASSETS.newsDarshan },
-  { id: "n4", channel: "News24", title: "Featured on News24", src: ASSETS.news24 }
+  { id: "n1", channel: "India TV", title: "Featured on India TV Wellness", src: ASSETS.newsIndiaTV, poster: ASSETS.thumbNewsIndiaTV },
+  { id: "n2", channel: "Zee News", title: "Featured on Zee News", src: ASSETS.newsZee, poster: ASSETS.thumbNewsZee },
+  { id: "n3", channel: "N Darshan", title: "Featured on N Darshan", src: ASSETS.newsDarshan, poster: ASSETS.thumbNewsDarshan },
+  { id: "n4", channel: "News24", title: "Featured on News24", src: ASSETS.news24, poster: ASSETS.thumbNews24 }
 ];
 
 export const WELLNESS_SERIES = [
-  { id: "w1", title: "Natural Yoga for Low Blood Pressure", topic: "Cardiovascular", src: ASSETS.wellness1 },
-  { id: "w2", title: "Yoga for High BP & Stress Management", topic: "Cardiovascular", src: ASSETS.wellness2 },
-  { id: "w3", title: "Eye Relaxation & Vision Wellness", topic: "Vision", src: ASSETS.wellness3 },
-  { id: "w4", title: "Natural Face Glow Yoga Routine", topic: "Beauty", src: ASSETS.wellness4 },
-  { id: "w5", title: "Yoga for Cervical Pain Relief", topic: "Pain Relief", src: ASSETS.wellness5 },
-  { id: "w6", title: "Frozen Shoulder Relief Exercises", topic: "Pain Relief", src: ASSETS.wellness6 },
-  { id: "w7", title: "Yoga for Better Sleep", topic: "Sleep", src: ASSETS.wellness7 }
+  { id: "w1", title: "Natural Yoga for Low Blood Pressure", topic: "Cardiovascular", src: ASSETS.wellness1, poster: ASSETS.thumbWellness1 },
+  { id: "w2", title: "Yoga for High BP & Stress Management", topic: "Cardiovascular", src: ASSETS.wellness2, poster: ASSETS.thumbWellness2 },
+  { id: "w3", title: "Eye Relaxation & Vision Wellness", topic: "Vision", src: ASSETS.wellness3, poster: ASSETS.thumbWellness3 },
+  { id: "w4", title: "Natural Face Glow Yoga Routine", topic: "Beauty", src: ASSETS.wellness4, poster: ASSETS.thumbWellness4 },
+  { id: "w5", title: "Yoga for Cervical Pain Relief", topic: "Pain Relief", src: ASSETS.wellness5, poster: ASSETS.thumbWellness5 },
+  { id: "w6", title: "Frozen Shoulder Relief Exercises", topic: "Pain Relief", src: ASSETS.wellness6, poster: ASSETS.thumbWellness6 },
+  { id: "w7", title: "Yoga for Better Sleep", topic: "Sleep", src: ASSETS.wellness7, poster: ASSETS.thumbWellness7 }
 ];
 
 export const TESTIMONIALS_VIDEO = [
-  { id: "tv1", name: "Asha Jha", role: "News24 Anchor", src: ASSETS.testimonialVideo1 },
-  { id: "tv2", name: "Chavi Sharma", role: "House Wife", src: ASSETS.testimonialVideo2 }
+  { id: "tv1", name: "Asha Jha", role: "News24 Anchor", src: ASSETS.testimonialVideo1, poster: ASSETS.thumbAshaJha },
+  { id: "tv2", name: "Chavi Sharma", role: "House Wife", src: ASSETS.testimonialVideo2, poster: ASSETS.thumbChaviSharma }
 ];
 
 /**

@@ -189,8 +189,13 @@ export default function AboutPage() {
               className="group relative aspect-video w-full bg-chocolate-deep grain overflow-hidden"
               data-magnetic="true"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform">
+              <StorageImage
+                path={ASSETS.thumbAtalMithila}
+                alt="Atal Mithila Samman"
+                className="absolute inset-0 w-full h-full object-contain bg-chocolate-deep group-hover:scale-[1.03] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="w-16 h-16 rounded-full bg-gold-shine flex items-center justify-center text-chocolate-deep group-hover:scale-110 transition-transform shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
                   <Play size={24} fill="currentColor" />
                 </span>
               </div>

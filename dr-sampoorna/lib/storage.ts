@@ -33,10 +33,10 @@ export async function resolveAsset(path: string, fallback?: string): Promise<str
 
 /** Asset registry — local public/images files, YouTube URLs, or Firebase Storage paths */
 export const ASSETS = {
-  // Hero / founder — placeholders until uploaded
-  hero: "/images/WhatsApp Image 2026-05-12 at 2.48.08 PM.jpeg", // also used as professional1
-  founderPortrait: "/images/WhatsApp Image 2026-05-12 at 2.48.08 PM.jpeg",
-  founderTeaching: "founder/founder-teaching.jpg",
+  // Hero / founder
+  hero: "/images/service-hero.jpg.jpeg",
+  founderPortrait: "/images/service-hero.jpg.jpeg",
+  founderTeaching: "/images/WhatsApp Image 2026-05-12 at 2.48.08 PM.jpeg",
 
   // Session photos — most still pending upload
   serviceSession1: "/images/WhatsApp Image 2026-05-17 at 10.14.05 PM.jpeg",
@@ -104,8 +104,8 @@ export const ASSETS = {
   testimonialVideo1: "https://youtube.com/shorts/8AOxeaIsuig", // Asha Jha
   testimonialVideo2: "https://youtube.com/shorts/y-VdUgur5lE", // Chavi Sharma
 
-  // Booking bg / sounds — pending
-  bookingBg: "service-booking-bg.jpg",
+  // Booking bg
+  bookingBg: "/images/ChatGPT Image May 18, 2026, 12_19_01 PM.png",
   ambient: "sounds/ambient.mp3",
   chime: "sounds/chime.mp3",
 
@@ -118,5 +118,34 @@ export const ASSETS = {
   corporate3: "/images/WhatsApp Image 2026-05-14 at 4.10.22 PM.jpeg",
   corporate4: "/images/Screenshot 2026-05-17 223616.png",
   corporate5: "/images/Screenshot 2026-05-17 223637.png",
-  corporate6: "/images/WhatsApp Image 2026-05-14 at 4.10.32 PM.jpeg"
+  corporate6: "/images/WhatsApp Image 2026-05-14 at 4.10.32 PM.jpeg",
+
+  // ── Company logos (Companies I worked with) ───────────────────────
+  logoDell:      "/images/Screenshot 2026-05-24 140025.png",
+  logoIndianOil: "/images/Screenshot 2026-05-24 140052.png",
+  logoHPCL:      "/images/Screenshot 2026-05-24 140039.png",
+  logoONGC:      "/images/Screenshot 2026-05-24 140108.png",
+  logoBPCL:      "/images/Screenshot 2026-05-24 140242.png",
+
+  // ── News channel logos ───────────────────────────────────────────
+  logoIndiaTV:  "/images/Screenshot 2026-05-24 140419.png",
+  logoZee:      "/images/Screenshot 2026-05-24 140441.png",
+  logoNews24:   "/images/Screenshot 2026-05-24 140400.png",
+  logoNDarshan: "/images/Screenshot 2026-05-24 141125.png",
+
+  // ── Custom video thumbnails (face-safe — DON'T crop heads) ────────
+  thumbNewsIndiaTV:  "/images/Screenshot 2026-05-24 142826.png",
+  thumbNewsZee:      "/images/Screenshot 2026-05-24 142946.png",
+  thumbNewsDarshan:  "/images/Screenshot 2026-05-24 143021.png",
+  thumbNews24:       "/images/WhatsApp Image 2026-05-13 at 5.01.50 PM.jpeg",
+  thumbWellness1:    "/images/Screenshot 2026-05-24 143125.png", // Low BP
+  thumbWellness2:    "/images/Screenshot 2026-05-24 143223.png", // High BP
+  thumbWellness3:    "/images/Screenshot 2026-05-24 143255.png", // Eye Wellness
+  thumbWellness4:    "/images/Screenshot 2026-05-24 143357.png", // Face Glow
+  thumbWellness5:    "/images/Screenshot 2026-05-24 143453.png", // Cervical
+  thumbWellness6:    "/images/Screenshot 2026-05-24 143531.png", // Frozen Shoulder
+  thumbWellness7:    "/images/Screenshot 2026-05-24 143555.png", // Sleep
+  thumbAtalMithila:  "/images/Screenshot 2026-05-24 143641.png",
+  thumbAshaJha:      "/images/Screenshot 2026-05-24 143845.png",
+  thumbChaviSharma:  "/images/Screenshot 2026-05-24 143925.png"
 } as const;
